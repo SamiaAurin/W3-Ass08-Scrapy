@@ -1,0 +1,22 @@
+hotels/dhaka-hotel-detail-45570507
+"cityJumpUrl": "/hotels/list?city=733"
+**********************************************
+
+"hotelBasicInfo": {
+    "hotelName": "White Palace Hotel",
+    "price": 36,
+}
+"commentInfo": {
+            "commentScore": "4.2",
+            }
+"roomInfo": {
+            "physicalRoomName": "Super Deluxe Twin Room",
+            }
+"positionInfo": {
+            
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.879744,
+                "lng": 90.39683,
+            },
+}           

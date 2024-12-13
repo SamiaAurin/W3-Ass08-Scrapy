@@ -1,0 +1,244 @@
+[
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 45570507,
+            "hotelName": "White Palace Hotel",
+            "price": 36,
+            "hotelImg": "https://ak-d.tripcdn.com/images/0581612000d3euoz5C29D_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.2"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Super Deluxe Twin Room"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.879744,
+                "lng": 90.39683
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 120229404,
+            "hotelName": "Grand Vistana",
+            "price": 37,
+            "hotelImg": "https://ak-d.tripcdn.com/images/1mc5z12000gjtddur706C_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.7"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Deluxe Room With City View"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.856941,
+                "lng": 90.401835
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 2199579,
+            "hotelName": "Six Seasons Hotel",
+            "price": 92,
+            "hotelImg": "https://ak-d.tripcdn.com/images/0580n12000cuqbd6u494F_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.6"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Deluxe Room"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.794703,
+                "lng": 90.419378
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 2510907,
+            "hotelName": "Best Western Plus Maple Leaf",
+            "price": 110,
+            "hotelImg": "https://ak-d.tripcdn.com/images/200k0s000000i31cdA937_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.2"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Deluxe King Room"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.855243,
+                "lng": 90.404097
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 3725948,
+            "hotelName": "Hotel Afford Inn",
+            "price": 32,
+            "hotelImg": "https://ak-d.tripcdn.com/images/0221y120009uosuq43515_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "3.9"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Deluxe Double Room"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.85611,
+                "lng": 90.403093
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 108649019,
+            "hotelName": "Palm Tree Business Hotel",
+            "price": 100,
+            "hotelImg": "https://ak-d.tripcdn.com/images/0203r12000by2vv006317_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.8"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Deluxe City View Twin Room"
+        },
+        "positionInfo": {
+            "positionName": "",
+            "coordinate": {
+                "lat": 23.776807,
+                "lng": 90.417501
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 739547,
+            "hotelName": "Hotel Sarina",
+            "price": 99,
+            "hotelImg": "https://ak-d.tripcdn.com/images/02204120009tpqqmwE146_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.4"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Deluxe King Room Non smoking"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.793233,
+                "lng": 90.404393
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 3725840,
+            "hotelName": "Bengal Blueberry",
+            "price": 59,
+            "hotelImg": "https://ak-d.tripcdn.com/images/0584912000cy45cuz0085_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.4"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Premium Queen Room"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.796215,
+                "lng": 90.415261
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 6443806,
+            "hotelName": "Blossom Hotel Dhaka",
+            "price": 20,
+            "hotelImg": "https://ak-d.tripcdn.com/images/0584p12000dwzcihz8DCE_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.0"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Super Deluxe Double Room"
+        },
+        "positionInfo": {
+            "positionName": "Near Hazrat Shahjalal International Airport",
+            "coordinate": {
+                "lat": 23.797509,
+                "lng": 90.425268
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 113084470,
+            "hotelName": "Lakeshore Heights",
+            "price": 69,
+            "hotelImg": "https://ak-d.tripcdn.com/images/1mc5t12000dyh671x473D_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.6"
+        },
+        "roomInfo": {
+            "physicalRoomName": "Executive Premium Deluxe"
+        },
+        "positionInfo": {
+            "positionName": "",
+            "coordinate": {
+                "lat": 23.781355,
+                "lng": 90.417838
+            }
+        }
+    },
+    {
+        "city_id": 733,
+        "hotelBasicInfo": {
+            "hotelId": 31402104,
+            "hotelName": "Holiday Inn Dhaka City Centre",
+            "price": 129,
+            "hotelImg": "https://ak-d.tripcdn.com/images/0580e12000d52xi0t3B49_R_250_250_R5_D.jpg_.webp"
+        },
+        "commentInfo": {
+            "commentScore": "4.4"
+        },
+        "roomInfo": {
+            "physicalRoomName": "1 King Bed Standard"
+        },
+        "positionInfo": {
+            "positionName": "Near Bangladesh National Museum",
+            "coordinate": {
+                "lat": 23.754054,
+                "lng": 90.400004
+            }
+        }
+    }
+]
