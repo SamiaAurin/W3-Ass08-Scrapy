@@ -1,6 +1,7 @@
 import scrapy
 import json
 import re
+import random
 
 class HotelInfoSpider(scrapy.Spider):
     name = "hotelinfo_spider"
@@ -22,19 +23,24 @@ class HotelInfoSpider(scrapy.Spider):
                     # Load the JSON data
                     json_data = json.loads(json_str)
 
-                    # Extract 'inboundCities' from the JSON data
-                    inbound_cities = json_data.get('initData', {}).get('htlsData', {}).get('inboundCities', [])
+                    # Randomly choose between 'inboundCities' or 'outboundCities'
+                    cities_list = random.choice([
+                        json_data.get('initData', {}).get('htlsData', {}).get('inboundCities', []),
+                        json_data.get('initData', {}).get('htlsData', {}).get('outboundCities', [])
+                    ])
 
-                    # Look for 'Dhaka' in the inboundCities list
-                    dhaka_info = next((city for city in inbound_cities if city['name'] == 'Dhaka'), None)
+                    # Randomly choose a city from the selected list
+                    if cities_list:
+                        city_info = random.choice(cities_list)
+                        city_name = city_info.get('name')
+                        self.log(f"Chosen city: {city_name}")
 
-                    if dhaka_info:
-                        # Save Dhaka city info to a JSON file
-                        with open('dhaka.json', 'w') as json_file:
-                            json.dump(dhaka_info, json_file, indent=4)
+                        # Save the chosen city info to a JSON file
+                        with open('random_city.json', 'w') as json_file:
+                            json.dump(city_info, json_file, indent=4)
 
                         # Construct the URL to scrape hotel data
-                        city_id = dhaka_info.get('id')
+                        city_id = city_info.get('id')
                         if city_id:
                             city_url = f"https://uk.trip.com//hotels/list?city={city_id}"
                             self.log(f"Following URL: {city_url}")
@@ -42,11 +48,11 @@ class HotelInfoSpider(scrapy.Spider):
                             # Make a new request to scrape hotel data
                             yield scrapy.Request(
                                 url=city_url,
-                                callback=self.parse_dhaka_hotels,
-                                meta={'city_info': dhaka_info}  # Pass city info to the next method
+                                callback=self.parse_hotels,
+                                meta={'city_info': city_info}  # Pass city info to the next method
                             )
                     else:
-                        self.log("Dhaka not found in inboundCities")
+                        self.log("No cities found in inboundCities or outboundCities")
                 
                 except json.JSONDecodeError as e:
                     self.log(f"Error decoding JSON: {e}")
@@ -55,7 +61,7 @@ class HotelInfoSpider(scrapy.Spider):
         else:
             self.log("Script containing window.IBU_HOTEL not found")
 
-    def parse_dhaka_hotels(self, response):
+    def parse_hotels(self, response):
         # Get the city info from the meta data passed from the previous request
         city_info = response.meta.get('city_info')
         city_id = city_info.get('id') if city_info else None
@@ -104,10 +110,10 @@ class HotelInfoSpider(scrapy.Spider):
                         filtered_hotels.append(filtered_data)
 
                     # Save the extracted data to a JSON file
-                    with open('dhaka_hotels_filtered.json', 'w') as json_file:
+                    with open('random_hotels_filtered.json', 'w') as json_file:
                         json.dump(filtered_hotels, json_file, indent=4)
                     
-                    self.log(f"Saved filtered hotel data to dhaka_hotels_filtered.json")
+                    self.log(f"Saved filtered hotel data to random_hotels_filtered.json")
                 
                 except json.JSONDecodeError as e:
                     self.log(f"Error decoding JSON: {e}")
