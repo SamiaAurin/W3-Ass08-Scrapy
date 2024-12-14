@@ -17,7 +17,7 @@ DEFAULT_REQUEST_HEADERS = {
 }
 
 # Respectful crawling
-DOWNLOAD_DELAY = 3  # Add a 2-second delay between requests
+DOWNLOAD_DELAY = 5  # Add a 5-second delay between requests
 CONCURRENT_REQUESTS_PER_DOMAIN = 2  # Limit concurrent requests to the same domain
 RANDOMIZE_DOWNLOAD_DELAY = True
 
@@ -39,6 +39,23 @@ RETRY_TIMES = 3  # Retry failed requests up to 3 times
 
 FEED_FORMAT = 'json'  # Specify the output format (JSON)
 FEED_URI = 'output.json'  # Specify the file name for the output
+
+# Enable the custom pipelines
+ITEM_PIPELINES = {
+    'travelscraper.pipelines.HotelInfoPipeline': 1
+}
+
+# Configure the PostgreSQL database URL
+DATABASE_URL = 'postgresql://username:password@db:5432/hotels_data'
+
+
+# Image pipeline settings
+IMAGES_STORE = 'images'  # Path where the images will be stored
+IMAGES_URLS_FIELD = 'hotel_img'  # The field in the item where the image URL is stored
+IMAGES_THUMBS = {
+    'small': (50, 50),
+    'big': (270, 270),
+}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = "travelscraper (+http://www.yourdomain.com)"
@@ -117,3 +134,6 @@ ROBOTSTXT_OBEY = True
 # Set settings whose default value is deprecated to a future-proof value
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
+
+LOG_LEVEL = 'INFO'  # or 'DEBUG' for more detailed output
+LOG_FILE = 'scrapy_logs.txt'  # To log the scraper's output into a file

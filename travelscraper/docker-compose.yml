@@ -1,0 +1,21 @@
+services:
+  scraper:
+    build: .
+    volumes:
+      - ./images:/app/images  # Mounting the images folder to store images inside the container
+    environment:
+      - DATABASE_URL=postgresql://username:password@db/hotels_data  # Database connection URL
+    depends_on:
+      - db  # Ensuring the db service is available before the scraper starts
+
+  db:
+    image: postgres:14  # Using the PostgreSQL image
+    environment:
+      POSTGRES_USER: username  # Database username
+      POSTGRES_PASSWORD: password  # Database password
+      POSTGRES_DB: hotels_data  # Database name
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persisting data in Docker volume
+
+volumes:
+  postgres_data:  # This volume will store the database data persistently

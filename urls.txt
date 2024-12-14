@@ -20,3 +20,20 @@ hotels/dhaka-hotel-detail-45570507
                 "lng": 90.39683,
             },
 }           
+**********************
+{
+        "city_id": 733,
+        "hotelId": 45570507,
+        "hotelName": "White Palace Hotel",
+        "price": 36,
+        "hotelImg": "https://ak-d.tripcdn.com/images/0581612000d3euoz5C29D_R_250_250_R5_D.jpg_.webp",
+        "rating": "4.2"
+        "room-type": "Super Deluxe Twin Room",
+        "location": "Near Hazrat Shahjalal International Airport",
+        "latitude": 23.879744,
+        "longitude": 90.39683,
+            
+}
+*********************
+docker exec -it travelscraper-db-1 bash
+psql -U username -d hotels_data

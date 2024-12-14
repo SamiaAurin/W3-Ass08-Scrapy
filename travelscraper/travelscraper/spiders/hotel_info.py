@@ -2,6 +2,7 @@ import scrapy
 import json
 import re
 import random
+from travelscraper.items import HotelInfoItem
 
 class HotelInfoSpider(scrapy.Spider):
     name = "hotelinfo_spider"
@@ -85,28 +86,20 @@ class HotelInfoSpider(scrapy.Spider):
                     filtered_hotels = []
                     for hotel in hotel_list:
                         coordinate = hotel.get("positionInfo", {}).get("coordinate", {})
-                        filtered_data = {
-                            "city_id": city_id,  # Save city_id here
-                            "hotelBasicInfo": {
-                                "hotelId": hotel.get("hotelBasicInfo", {}).get("hotelId"),
-                                "hotelName": hotel.get("hotelBasicInfo", {}).get("hotelName"),
-                                "price": hotel.get("hotelBasicInfo", {}).get("price"),
-                                "hotelImg": hotel.get("hotelBasicInfo", {}).get("hotelImg"),
-                            },
-                            "commentInfo": {
-                                "commentScore": hotel.get("commentInfo", {}).get("commentScore"),
-                            },
-                            "roomInfo": {
-                                "physicalRoomName": hotel.get("roomInfo", {}).get("physicalRoomName"),
-                            },
-                            "positionInfo": {
-                                "positionName": hotel.get("positionInfo", {}).get("positionName"),
-                                "coordinate": {
-                                    "lat": coordinate.get("lat"),
-                                    "lng": coordinate.get("lng"),
-                                },
-                            },
-                        }
+                        filtered_data = HotelInfoItem(
+                            city_id=city_id,  
+                            hotelId=hotel.get("hotelBasicInfo", {}).get("hotelId"),
+                            hotelName=hotel.get("hotelBasicInfo", {}).get("hotelName"),
+                            price=hotel.get("hotelBasicInfo", {}).get("price"),
+                            hotelImg=hotel.get("hotelBasicInfo", {}).get("hotelImg"),
+                            rating=hotel.get("commentInfo", {}).get("commentScore"),
+                            room_type=hotel.get("roomInfo", {}).get("physicalRoomName"),
+                            location=hotel.get("positionInfo", {}).get("positionName"),
+                            latitude=hotel.get("positionInfo", {}).get("coordinate", {}).get("lat"),
+                            longitude=hotel.get("positionInfo", {}).get("coordinate", {}).get("lng"),
+                        )
+
+                        yield filtered_data
                         filtered_hotels.append(filtered_data)
 
                     # Save the extracted data to a JSON file
