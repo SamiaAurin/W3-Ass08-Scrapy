@@ -18,7 +18,7 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Respectful crawling
 DOWNLOAD_DELAY = 5  # Add a 5-second delay between requests
-CONCURRENT_REQUESTS_PER_DOMAIN = 2  # Limit concurrent requests to the same domain
+CONCURRENT_REQUESTS_PER_DOMAIN = 1  # Limit concurrent requests to the same domain
 RANDOMIZE_DOWNLOAD_DELAY = True
 
 # Enable AutoThrottle
@@ -42,7 +42,7 @@ FEED_URI = 'output.json'  # Specify the file name for the output
 
 # Enable the custom pipelines
 ITEM_PIPELINES = {
-    'travelscraper.pipelines.HotelInfoPipeline': 1
+    'travelscraper.pipelines.HotelPipeline': 1
 }
 
 # Configure the PostgreSQL database URL
@@ -135,5 +135,5 @@ ROBOTSTXT_OBEY = True
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
-LOG_LEVEL = 'INFO'  # or 'DEBUG' for more detailed output
+LOG_LEVEL = 'DEBUG' # or 'DEBUG' for more detailed output
 LOG_FILE = 'scrapy_logs.txt'  # To log the scraper's output into a file

@@ -5,6 +5,7 @@ services:
       - ./images:/app/images  # Mounting the images folder to store images inside the container
     environment:
       - DATABASE_URL=postgresql://username:password@db/hotels_data  # Database connection URL
+    #restart: always  # Automatically restart if it fails  
     depends_on:
       - db  # Ensuring the db service is available before the scraper starts
 

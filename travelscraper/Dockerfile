@@ -11,5 +11,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the project files
 COPY . .
 
-# Run the Scrapy spider named "hotelinfo_spider"
-CMD ["scrapy", "crawl", "hotelinfo_spider"]
+# Default command to run Scrapy spider
+#CMD ["scrapy", "crawl", "hotel_info", "-s", "LOG_LEVEL=DEBUG"]
+CMD ["scrapy", "crawl", "hotel_info"]
