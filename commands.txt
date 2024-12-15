@@ -39,5 +39,5 @@ docker exec -it travelscraper-db-1 bash
 psql -U username -d hotels_data
 SELECT * FROM hotels;
 *********************
-scrapy crawl demo
-scrapy crawl demo -s LOG_LEVEL=DEBUG
+scrapy crawl hotel_info
+scrapy crawl hotel_info -s LOG_LEVEL=DEBUG
