@@ -43,7 +43,7 @@ Before running this project, ensure you have the following installed:
    On Windows:
 
     ```bash
-    python -m venv venv   # or python -m venv venv 
+    python3 -m venv venv   # or python -m venv venv 
     venv\Scripts\activate
     ```
 3. Docker Desktop    
