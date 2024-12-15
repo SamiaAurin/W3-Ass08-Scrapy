@@ -41,3 +41,8 @@ SELECT * FROM hotels;
 *********************
 scrapy crawl hotel_info
 scrapy crawl hotel_info -s LOG_LEVEL=DEBUG
+*********************
+pip install coverage
+coverage run -m unittest tests\test.py
+coverage report
+coverage html  # Generate an HTML report

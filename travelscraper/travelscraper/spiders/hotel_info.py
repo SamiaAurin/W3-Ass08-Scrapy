@@ -18,7 +18,8 @@ class HotelInfoSpider(scrapy.Spider):
                 json_str = match.group(1)
                 try:
                     json_data = json.loads(json_str)
-                     # Randomly choose between 'inboundCities' or 'outboundCities'
+                    
+                    # Randomly choose between 'inboundCities' or 'outboundCities'
                     cities = random.choice([
                         json_data.get('initData', {}).get('htlsData', {}).get('inboundCities', []),
                         json_data.get('initData', {}).get('htlsData', {}).get('outboundCities', [])
@@ -43,6 +44,8 @@ class HotelInfoSpider(scrapy.Spider):
                 json_str = match.group(1)
                 try:
                     json_data = json.loads(json_str)
+                    self.log("Hotel JSON data loaded successfully!")
+                    
                     hotel_list = json_data.get('initData', {}).get('firstPageList', {}).get('hotelList', [])
 
                     for hotel in hotel_list:

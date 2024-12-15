@@ -3,4 +3,4 @@ scrapy-user-agents
 SQLAlchemy
 requests
 psycopg2-binary
-
+coverage

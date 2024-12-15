@@ -136,4 +136,5 @@ TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 
 LOG_LEVEL = 'DEBUG' # or 'DEBUG' for more detailed output
+LOG_STDOUT = True  
 LOG_FILE = 'scrapy_logs.txt'  # To log the scraper's output into a file

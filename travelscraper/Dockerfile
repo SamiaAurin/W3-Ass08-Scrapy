@@ -12,5 +12,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Default command to run Scrapy spider
-#CMD ["scrapy", "crawl", "hotel_info", "-s", "LOG_LEVEL=DEBUG"]
+#CMD ["scrapy", "crawl", "hotel_info", "-s", "LOG_LEVEL=DEBUG"] CMD ["sh", "-c", "coverage run -m scrapy crawl hotel_info && tail -f /dev/null"]
 CMD ["scrapy", "crawl", "hotel_info"]
