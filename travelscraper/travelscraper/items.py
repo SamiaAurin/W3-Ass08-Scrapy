@@ -9,6 +9,8 @@ class Hotel(Base):
     __tablename__ = 'hotels'
 
     id = Column(Integer, primary_key=True, autoincrement=True)
+    city_id = Column(Integer, nullable=False)
+    hotel_id = Column(String, nullable=False)
     hotel_name = Column(String, nullable=False)
     price = Column(Float, nullable=True)
     hotel_img = Column(String, nullable=True)  # Stores file path of the image

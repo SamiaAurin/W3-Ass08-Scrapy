@@ -35,14 +35,20 @@ hotels/dhaka-hotel-detail-45570507
             
 }
 *********************
+Viewing Database Tables in the Docker Container
+*********************
 docker exec -it travelscraper-db-1 bash
 psql -U username -d hotels_data
 SELECT * FROM hotels;
+
 *********************
 scrapy crawl hotel_info
 scrapy crawl hotel_info -s LOG_LEVEL=DEBUG
-*********************
-pip install coverage
+
+***********************
+Code coverage
+***********************
+pip install coverage requests sqlalchemy
 coverage run -m unittest tests\test.py
 coverage report
 coverage html  # Generate an HTML report

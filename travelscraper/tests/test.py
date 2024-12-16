@@ -61,6 +61,8 @@ class TestHotelPipeline(TestCase):
     def test_process_item(self):
         # Mock Scrapy item
         item = {
+            "city_id": 1,
+            "hotel_id": 123,
             "hotel_name": "Test Hotel",
             "price": "100",
             "rating": "4.5",

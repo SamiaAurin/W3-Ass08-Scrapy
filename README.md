@@ -11,6 +11,7 @@ This project is a web scraper designed to extract hotel property information fro
 - [Usage](#usage)
 - [Database Configuration](#database-configuration)
 - [Code Coverage](#code-coverage)
+- [Known Issues](#known-issues)
 
 
 ## Installation
@@ -22,9 +23,10 @@ Before running this project, ensure you have the following installed:
 - **Python 3.10+** (for local development)
 - **Docker and Docker Compose**
    - Follow the official Docker installation guide to install Docker on your system: [Docker Installation Guide](https://docs.docker.com/desktop/)
-- **PostgreSQL** (if not using Docker for the database)
+
 
 ### Steps
+For a step-by-step guide on running the necessary commands and visualizing the project's database or output after cloning the repository, download the `Assignment-Scrapy.pdf` file included in the project.
 
 1. Clone the repository
 
@@ -68,7 +70,7 @@ The project follows a standard Scrapy project structure. Here’s an overview:
 
 ```bash
     travelcscraper/
-    │   ├── images        #create a folder named images        
+    │   ├── images        #create a folder named images or it will be auto created.       
     │   ├── tests
     │   ├── travelcscraper/ 
     │   │   ├── spiders/
@@ -109,6 +111,27 @@ Images will be automatically downloaded and stored in a directory called `images
 ### Storing Data in PostgreSQL
 The scraper will automatically create the necessary database table and store hotel property data such as title, rating, location, latitude, longitude, room type, price, and image references.
 
+#### Viewing Database Tables in the Docker Container
+To inspect the database tables and view their data within the PostgreSQL container, follow these steps:
+
+1. Access the PostgreSQL Container
+Run the following command to open a bash shell inside the running database container:
+```bash
+docker exec -it travelscraper-db-1 bash
+```
+2. Connect to the PostgreSQL Database
+```bash
+psql -U username -d hotels_data
+```
+3. Query the Database
+To view the data in the `hotels` table, execute the following SQL command:
+
+```bash
+SELECT * FROM hotels;
+```
+This will display all the records stored in the `hotels` table.
+
+
 ## Database Configuration
 
 The connection string for PostgreSQL is stored in the environment variable `DATABASE_URL`. Here is an example of the connection string format:
@@ -129,7 +152,31 @@ Make sure to adjust the DATABASE_URL environment variable in `docker-compose.yml
 This can be tested using:
 
 ```bash
-pip install coverage
+pip install coverage requests sqlalchemy
 coverage run -m unittest tests\test.py
 coverage report
 ```
+
+**Note:** During the test execution, you may notice a log message like the following:
+```bash
+Failed to download image https://invalid-url/test.jpg: HTTPSConnectionPool(host='invalid-url', port=443): Max retries exceeded with url: /test.jpg (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x000001B09914D2B0>: Failed to resolve 'invalid-url' ([Errno 11001] getaddrinfo failed)"))
+```
+
+**Why This Happens**
+This message is expected and does not indicate a problem with the application. It occurs because the tests include a scenario where an invalid or dummy image URL (https://invalid-url/test.jpg) is intentionally used to verify how the application handles failures in downloading images.
+
+**Purpose of This Test**
+This test ensures that:
+
+- The pipeline gracefully handles cases where an image URL is invalid or unreachable.
+- The system does not crash and continues processing other items even when an image download fails.
+- If you see this message during testing, it means the system is functioning as expected in handling invalid image URLs.
+
+## Known Issues
+If you encounter any issues related to dependencies or changes made in the `requirements.txt`, `docker-compose.yml`, or `Dockerfile`, it is recommended to rebuild the Docker containers without using the cache. This ensures that all changes are reflected and any stale layers are removed.
+
+Run the following command to rebuild the containers:
+```bash
+docker-compose build --no-cache
+```
+This command will force Docker to rebuild the image from scratch, incorporating any updates or changes made to the configuration files.

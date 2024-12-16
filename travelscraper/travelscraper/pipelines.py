@@ -25,6 +25,8 @@ class HotelPipeline:
 
         # Save data to database
         hotel = Hotel(
+            city_id=item.get("city_id"),
+            hotel_id=item.get("hotel_id"),
             hotel_name=item.get("hotel_name"),
             price=item.get("price"),
             hotel_img=item.get("hotel_img"),
