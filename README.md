@@ -153,7 +153,7 @@ This can be tested using:
 
 ```bash
 pip install coverage requests sqlalchemy
-coverage run -m unittest tests\test.py
+coverage run -m unittest tests/test.py  #or coverage run -m unittest tests\test.py
 coverage report
 ```
 
